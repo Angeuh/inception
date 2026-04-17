@@ -2,12 +2,15 @@
 
 if [ ! -f "/var/www/html/wp-config.php" ];then 
 cd /var/www/html
+DB_PASSWORD=$(cat /run/secrets/db_password)
+WP_ADMIN_PASSWORD=$(cat /run/secrets/wp_admin_password)
+WP_USER_PASSWORD=$(cat /run/secrets/wp_user_password)
 wp core --allow-root download --path="/var/www/html"
 
     wp config create --allow-root \
         --dbname="$MYSQL_DATABASE" \
         --dbuser="$MYSQL_USER" \
-        --dbpass="$MYSQL_PASSWORD" \
+        --dbpass="$DB_PASSWORD" \
         --dbhost="$DB_HOST" \
         --skip-check \
         --path="/var/www/html"

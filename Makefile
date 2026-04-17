@@ -32,6 +32,7 @@ clean:
 
 fclean: clean
 	sudo rm -rf $(MARIADB_DATA) $(WORDPRESS_DATA)
+	sudo rm -rf secrets/
 	sudo mkdir -p $(MARIADB_DATA) $(WORDPRESS_DATA)
 	sudo chown -R $$USER:$$USER $(MARIADB_DATA) $(WORDPRESS_DATA)
 	sudo chmod -R u+rwX $(MARIADB_DATA) $(WORDPRESS_DATA)

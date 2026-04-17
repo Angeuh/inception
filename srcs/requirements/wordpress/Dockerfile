@@ -17,6 +17,8 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN mkdir -p /var/www/html \
     && chown -R www-data:www-data /var/www/html
 
+RUN sed -i 's|listen = /run/php/php8.2-fpm.sock|listen = 9000|g' /etc/php/8.2/fpm/pool.d/www.conf
+
 # Copy WordPress default config (if needed)
 COPY conf/www.conf /etc/wordpress/config-default.php
 
