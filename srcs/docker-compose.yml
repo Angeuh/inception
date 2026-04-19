@@ -60,10 +60,10 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/llarrey/inception/srcs/requirements/mariadb/data
+      device: ~/inception/srcs/requirements/mariadb/data
   wordpress_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/llarrey/inception/srcs/requirements/wordpress/data
+      device: ~/inception/srcs/requirements/wordpress/data
